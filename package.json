@@ -1,12 +1,17 @@
 {
   "private": true,
-  "name": "@acme/monorepo",
+  "name": "@dineden/monorepo",
   "scripts": {
     "postinstall": "expo-yarn-workspaces check-workspace-dependencies",
     "build": "yarn workspaces run build",
-    "test":" yarn workspaces run test",
-    "managed": "yarn workspace @acme/app-managed",
-    "ejected": "yarn workspace @acme/app-ejected"
+    "test": " yarn workspaces run test",
+    "managed": "yarn workspace @dineden/app-managed expo start -c",
+    "client": "yarn workspace @dineden/client expo start -c",
+    "merchant": "yarn workspace @dineden/merchant expo start -c",
+    "manager": "yarn workspace @dineden/manager expo start -c",
+    "connect": "ssh -R 5001:localhost:5001 kick@144.217.86.125",
+    "ngrok": "cd private && ngrok http 5001",
+    "serve": "cd server/functions && nodemon -e ts --exec 'npm run serve'"
   },
   "workspaces": [
     "apps/*",
